@@ -1,0 +1,41 @@
+version: "3.5"
+services:
+  nats:
+    image: nats
+    ports:
+      - "8222:8222"
+      - 4222:4222
+    command: "--http_port 8222"
+
+  app: 
+    build:
+      context: .
+    image: sample_app_image
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app
+    command: "npm run app"
+  app2: 
+    image: sample_app_image
+    depends_on:
+      - app
+    ports:
+      - 3001:3001
+    volumes:
+      - ./:/app
+    command: "npm run app2"
+
+  app3: 
+    image: sample_app_image
+    depends_on:
+      - app
+    ports:
+      - 3002:3002
+    volumes:
+      - ./:/app
+    command: "npm run app3"
+networks:
+  nats:
+    name: nats
+  

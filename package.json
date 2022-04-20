@@ -1,0 +1,22 @@
+{
+  "name": "nats_sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "app": "nodemon app.js",
+    "app2": "nodemon app2.js",
+    "app3": "nodemon app3.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "nats": "^2.6.1"
+  }
+}
